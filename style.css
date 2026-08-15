@@ -56,3 +56,65 @@ h1 {
 .controls button:hover {
     background: #ccc;
 }
+
+.option-selector {
+    margin-bottom: 25px;
+}
+
+.option-selector h2 {
+    margin-bottom: 10px;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.option-row button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.option-row button:hover {
+    background: #ccc;
+}
+
+#skin-name {
+    min-width: 70px;
+}
+
+
+/* back hair */
+
+.hair-color-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: #5a3825;
+
+    /* -webkit-mask-image: url("assets/hair/back/color-area/color_area-1.png");
+    mask-image: url("assets/hair/back/color-area/color_area-1.png");
+    
+    -webkit-mask-image: url("assets/hair/bangs/color-area/color_area-1.png");
+    mask-image: url("assets/hair/bangs/color-area/color_area-1.png"); */
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+}

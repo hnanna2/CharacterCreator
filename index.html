@@ -14,22 +14,92 @@
     <div class="creator">
 
         <div class="character-preview">
+            <div id="back-hair-color" class="hair-color-layer"></div>
+
+            <img 
+                id="back-hair-outline"
+                src="assets/hair/back/outline/back-1.png"
+                class="character-layer"
+            >
+
+            <img 
+                id="skin-layer"
+                src="assets/skin/skin_tone-1.png"
+                class="character-layer"
+            >
+
+            <img id="blush-layer" src="assets/blush/blush-1.PNG" class="character-layer">
             <img src="assets/body/body-test.png" class="character-layer">
-            <img src="assets/skin/skin_tone-test.png" class="character-layer">
-            <img src="assets/hair/back/back_hair-test.png" class="character-layer">
             <img src="assets/bottoms/bottoms-test.PNG" class="character-layer">
             <img src="assets/shirts/shirt-test.png" class="character-layer">
             <img src="assets/shoes/shoes-test.PNG" class="character-layer">
-            <img src="assets/hair/bangs/bangs-test.png" class="character-layer">
+            
+            <div id="bang-hair-color" class="hair-color-layer"></div>
+
+            <img 
+                id="bang-hair-outline"
+                src="assets/hair/bangs/outline/bang-1.PNG"
+                class="character-layer"
+            >        
         </div>
 
         <div class="controls">
             <h2>Character</h2>
 
             <button>Body</button>
-            <button>Skin</button>
-            <button>Back Hair</button>
-            <button>Bangs</button>
+            <!-- <button>Skin</button> -->
+             <div class="option-selector">
+                <h2>Skin</h2>
+
+                <div class="option-row">
+                    <button onclick="previousSkin()">←</button>
+
+                    <span id="skin-name">Skin 1</span>
+
+                    <button onclick="nextSkin()">→</button>
+                </div>
+            </div>
+
+            <div class="skin-options">
+                <h2>Blush</h2>
+
+                <button onclick="changeBlush(1)">Blush 1</button>
+                <button onclick="changeBlush(2)">Blush 2</button>
+            </div>
+            
+           <div class="option-selector">
+                <h2>Back Hair</h2>
+
+                <div class="option-row">
+                    <button onclick="previousBackHair()">←</button>
+
+                    <span id="back-hair-name">Hair 1</span>
+
+                    <button onclick="nextBackHair()">→</button>
+                </div>
+
+                <h2>Bangs</h2>
+
+                <div class="option-row">
+                    <button onclick="previousBangHair()">←</button>
+
+                    <span id="bang-hair-name">Hair 1</span>
+
+                    <button onclick="nextBangHair()">→</button>
+                </div>
+            </div>
+
+            <div class="option-selector">
+                <h2>Hair Color</h2>
+
+                <div class="hair-colors">
+                    <button onclick="changeHairColor('#171717')">Black</button>
+                    <button onclick="changeHairColor('#5a3825')">Brown</button>
+                    <button onclick="changeHairColor('#d6a84f')">Blonde</button>
+                    <button onclick="changeHairColor('#c94f6d')">Pink</button>
+                </div>
+            </div>
+
             <button>Shirt</button>
             <button>Bottoms</button>
             <button>Shoes</button>
