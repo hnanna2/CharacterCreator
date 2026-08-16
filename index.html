@@ -13,7 +13,186 @@
 
     <div class="creator">
 
+        <div class="controls controls-left">
+            <div class="option-selector">
+                <h2>Body</h2>
+
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousBody()">←</button>
+                    <span id="body-name">Body 1</span>
+                    <button class="arrow-button" onclick="nextBody()">→</button>
+                </div>
+            </div>
+
+
+            <div class="option-selector">
+                <h2>Skin</h2>
+
+                <div class="skin-colors">
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #511906;"
+                        onclick="selectSkin(1)"
+                        aria-label="Skin tone 1">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #662915;"
+                        onclick="selectSkin(2)"
+                        aria-label="Skin tone 2">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #7B3A24;"
+                        onclick="selectSkin(3)"
+                        aria-label="Skin tone 3">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #B95C3C;"
+                        onclick="selectSkin(4)"
+                        aria-label="Skin tone 4">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #b87550;"
+                        onclick="selectSkin(5)"
+                        aria-label="Skin tone 5">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #E19175;"
+                        onclick="selectSkin(6)"
+                        aria-label="Skin tone 6">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #F3BBAA;"
+                        onclick="selectSkin(7)"
+                        aria-label="Skin tone 7">
+                    </button>
+
+                    <button
+                        class="skin-color-button"
+                        style="background-color: #F8D1C3;"
+                        onclick="selectSkin(8)"
+                        aria-label="Skin tone 8">
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="skin-options">
+                <h2>Expression</h2>
+
+                <!-- <button onclick="changeBlush(1)">Blush 1</button>
+                <button onclick="changeBlush(2)">Blush 2</button> -->
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousExpression()">←</button>
+                    <span id="expression-name">Face 1</span>
+                    <button class="arrow-button" onclick="nextExpression()">→</button>
+                </div>
+            </div>
+
+            <div class="skin-options">
+                <h2>Blush</h2>
+
+                <!-- <button onclick="changeBlush(1)">Blush 1</button>
+                <button onclick="changeBlush(2)">Blush 2</button> -->
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousBlush()">←</button>
+                    <span id="blush-name">Hair 1</span>
+                    <button class="arrow-button" onclick="nextBlush()">→</button>
+                </div>
+            </div>
+            
+           <div class="option-selector">
+                <h2>Back Hair</h2>
+
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousBackHair()">←</button>
+                    <span id="back-hair-name">Hair 1</span>
+                    <button class="arrow-button" onclick="nextBackHair()">→</button>
+                </div>
+
+                <h2>Bangs</h2>
+
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousBangHair()">←</button>
+                    <span id="bang-hair-name">Hair 1</span>
+                    <button class="arrow-button" onclick="nextBangHair()">→</button>
+                </div>
+            </div>
+
+            <div class="option-selector">
+                <h2>Hair Color</h2>
+
+                <div class="hair-colors">
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #171717;"
+                        onclick="changeHairColor('#171717')"
+                        aria-label="Black">
+                    </button>
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #381e0e;"
+                        onclick="changeHairColor('#381e0e')"
+                        aria-label="Dark Brown">
+                    </button>
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #5a3825;"
+                        onclick="changeHairColor('#5a3825')"
+                        aria-label="Brown">
+                    </button>
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #662e0d;"
+                        onclick="changeHairColor('#662e0d')"
+                        aria-label="Chestnut">
+                    </button>
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #a8571d;"
+                        onclick="changeHairColor('#a8571d')"
+                        aria-label="Red">
+                    </button>
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #dbc37b;"
+                        onclick="changeHairColor('#dbc37b')"
+                        aria-label="Blonde">
+                    </button>
+
+                    <button 
+                        class="hair-color-button"
+                        style="background-color: #ede5b9;"
+                        onclick="changeHairColor('#ede5b9')"
+                        aria-label="Platinum Blonde">
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
         <div class="character-preview">
+
+            <div id="skin-color" class="skin-color-layer"></div>
+
             <div id="back-hair-color" class="hair-color-layer"></div>
 
             <img 
@@ -22,18 +201,41 @@
                 class="character-layer"
             >
 
-            <img 
-                id="skin-layer"
-                src="assets/skin/skin_tone-1.png"
+
+            <img id="blush-layer" src="assets/blush/blush-1.PNG" class="character-layer">
+
+            <img id="expression-layer" src="assets/expressions/face-1.png" class="character-layer">
+
+            <img
+                id="body-outline"
+                src="assets/body/outline/body-1.png"
                 class="character-layer"
             >
 
-            <img id="blush-layer" src="assets/blush/blush-1.PNG" class="character-layer">
-            <img src="assets/body/body-test.png" class="character-layer">
-            <img src="assets/bottoms/bottoms-test.PNG" class="character-layer">
-            <img src="assets/shirts/shirt-test.png" class="character-layer">
-            <img src="assets/shoes/shoes-test.PNG" class="character-layer">
-            
+            <div id="shoe-color" class="clothing-color-layer"></div>
+
+            <img
+                id="shoe-outline"
+                src="assets/shoes/outline/outline-1.png"
+                class="character-layer"
+            >
+
+            <div id="bottoms-color" class="clothing-color-layer"></div>
+
+            <img
+                id="bottoms-outline"
+                src="assets/bottoms/body-1/outline/outline-1.png"
+                class="character-layer"
+            >
+
+            <div id="shirt-color" class="clothing-color-layer"></div>
+
+            <img
+                id="shirt-outline"
+                src="assets/shirts/body-2/outline/outline-1.png"
+                class="character-layer"
+            >
+                        
             <div id="bang-hair-color" class="hair-color-layer"></div>
 
             <img 
@@ -43,66 +245,232 @@
             >        
         </div>
 
-        <div class="controls">
-            <h2>Character</h2>
+        <div class="controls controls-right">
 
-            <button>Body</button>
-            <!-- <button>Skin</button> -->
-             <div class="option-selector">
-                <h2>Skin</h2>
+            <div class="option-selector">
+                <h2>Tops</h2>
 
                 <div class="option-row">
-                    <button onclick="previousSkin()">←</button>
+                    <button class="arrow-button" onclick="previousShirt()">←</button>
 
-                    <span id="skin-name">Skin 1</span>
+                    <span id="shirt-name">Shirt 1</span>
 
-                    <button onclick="nextSkin()">→</button>
-                </div>
-            </div>
-
-            <div class="skin-options">
-                <h2>Blush</h2>
-
-                <button onclick="changeBlush(1)">Blush 1</button>
-                <button onclick="changeBlush(2)">Blush 2</button>
-            </div>
-            
-           <div class="option-selector">
-                <h2>Back Hair</h2>
-
-                <div class="option-row">
-                    <button onclick="previousBackHair()">←</button>
-
-                    <span id="back-hair-name">Hair 1</span>
-
-                    <button onclick="nextBackHair()">→</button>
-                </div>
-
-                <h2>Bangs</h2>
-
-                <div class="option-row">
-                    <button onclick="previousBangHair()">←</button>
-
-                    <span id="bang-hair-name">Hair 1</span>
-
-                    <button onclick="nextBangHair()">→</button>
+                    <button class="arrow-button" onclick="nextShirt()">→</button>
                 </div>
             </div>
 
             <div class="option-selector">
-                <h2>Hair Color</h2>
+                <h2>Top Color</h2>
 
-                <div class="hair-colors">
-                    <button onclick="changeHairColor('#171717')">Black</button>
-                    <button onclick="changeHairColor('#5a3825')">Brown</button>
-                    <button onclick="changeHairColor('#d6a84f')">Blonde</button>
-                    <button onclick="changeHairColor('#c94f6d')">Pink</button>
+                <div class="clothing-colors">
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #171717;"
+                        onclick="changeShirtColor('#171717')"
+                        aria-label="Black">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #6d9c79;"
+                        onclick="changeShirtColor('#6d9c79')"
+                        aria-label="Green">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #4d6fa8;"
+                        onclick="changeShirtColor('#4d6fa8')"
+                        aria-label="Blue">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #b83b3b;"
+                        onclick="changeShirtColor('#b83b3b')"
+                        aria-label="Red">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #d8c27a;"
+                        onclick="changeShirtColor('#d8c27a')"
+                        aria-label="Cream">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #e4ebed;"
+                        onclick="changeShirtColor('#e4ebed')"
+                        aria-label="White">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #dea0cd;"
+                        onclick="changeShirtColor('#dea0cd')"
+                        aria-label="Pink">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #574208;"
+                        onclick="changeShirtColor('#574208')"
+                        aria-label="Brown">
+                    </button>
+
                 </div>
             </div>
 
-            <button>Shirt</button>
-            <button>Bottoms</button>
-            <button>Shoes</button>
+            <div class="option-selector">
+                <h2>Bottoms</h2>
+
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousBottoms()">←</button>
+                    <span id="bottoms-name">Bottoms 1</span>
+                    <button class="arrow-button" onclick="nextBottoms()">→</button>
+                </div>
+            </div>
+
+            <div class="option-selector">
+                <h2>Bottom Color</h2>
+
+                <div class="clothing-colors">
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #171717;"
+                        onclick="changeBottomsColor('#171717')"
+                        aria-label="Black">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #6d9c79;"
+                        onclick="changeBottomsColor('#6d9c79')"
+                        aria-label="Green">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #4d6fa8;"
+                        onclick="changeBottomsColor('#4d6fa8')"
+                        aria-label="Blue">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #b83b3b;"
+                        onclick="changeBottomsColor('#b83b3b')"
+                        aria-label="Red">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #d8c27a;"
+                        onclick="changeBottomsColor('#d8c27a')"
+                        aria-label="Cream">
+                    </button>
+
+                     <button
+                        class="clothing-color-button"
+                        style="background-color: #e4ebed;"
+                        onclick="changeBottomsColor('#e4ebed')"
+                        aria-label="White">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #dea0cd;"
+                        onclick="changeBottomsColor('#dea0cd')"
+                        aria-label="Pink">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #574208;"
+                        onclick="changeBottomsColor('#574208')"
+                        aria-label="Brown">
+                    </button>
+
+                </div>
+            </div>
+
+             <div class="option-selector">
+                <h2>Shoes</h2>
+
+                <div class="option-row">
+                    <button class="arrow-button" onclick="previousShoe()">←</button>
+                    <span id="shoe-name">Shoe 1</span>
+                    <button class="arrow-button" onclick="nextShoe()">→</button>
+                </div>
+            </div>
+
+
+            <div class="option-selector">
+                <h2>Shoe Color</h2>
+
+                <div class="clothing-colors">
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #171717;"
+                        onclick="changeShoeColor('#171717')"
+                        aria-label="Black">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #6d9c79;"
+                        onclick="changeShoeColor('#6d9c79')"
+                        aria-label="Green">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #4d6fa8;"
+                        onclick="changeShoeColor('#4d6fa8')"
+                        aria-label="Blue">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #b83b3b;"
+                        onclick="changeShoeColor('#b83b3b')"
+                        aria-label="Red">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #d8c27a;"
+                        onclick="changeShoeColor('#d8c27a')"
+                        aria-label="Cream">
+                    </button>
+
+                     <button
+                        class="clothing-color-button"
+                        style="background-color: #e4ebed;"
+                        onclick="changeShoeColor('#e4ebed')"
+                        aria-label="White">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #dea0cd;"
+                        onclick="changeShoeColor('#dea0cd')"
+                        aria-label="Pink">
+                    </button>
+
+                    <button
+                        class="clothing-color-button"
+                        style="background-color: #574208;"
+                        onclick="changeShoeColor('#574208')"
+                        aria-label="Brown">
+                    </button>
+
+                </div>
+            </div>
         </div>
 
     </div>
