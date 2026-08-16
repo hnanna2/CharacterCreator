@@ -668,6 +668,212 @@ function changeBkgColor(color) {
 
 
 
+// DOWNLOADING PNG
+
+async function downloadCharacter() {
+
+    const preview = document.querySelector(".character-preview");
+
+    // Use the actual artwork dimensions
+    const firstImage = preview.querySelector("img");
+
+    const width = firstImage.naturalWidth;
+    const height = firstImage.naturalHeight;
+
+    const canvas = document.createElement("canvas");
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const ctx = canvas.getContext("2d");
+
+    // --------------------------------
+    // Draw a normal image layer
+    // --------------------------------
+
+    function drawImageLayer(img) {
+
+        if (!img.complete || img.naturalWidth === 0) {
+            return;
+        }
+
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+        );
+    }
+
+
+    // --------------------------------
+    // Draw a colored masked layer
+    // --------------------------------
+
+    async function drawColorLayer(element) {
+
+        const styles = getComputedStyle(element);
+
+        const backgroundColor = styles.backgroundColor;
+
+        // Get the mask image
+        let maskImage = styles.webkitMaskImage;
+
+        if (!maskImage || maskImage === "none") {
+            maskImage = styles.maskImage;
+        }
+
+        if (!maskImage || maskImage === "none") {
+            return;
+        }
+
+        // Extract URL from:
+        // url("assets/example.png")
+        const match = maskImage.match(
+            /url\(["']?(.*?)["']?\)/
+        );
+
+        if (!match) {
+            return;
+        }
+
+        const maskURL = match[1];
+
+        // Load mask
+        const mask = new Image();
+
+        mask.src = maskURL;
+
+        await new Promise((resolve, reject) => {
+
+            mask.onload = resolve;
+
+            mask.onerror = () => {
+                console.error(
+                    "Could not load mask:",
+                    maskURL
+                );
+
+                resolve();
+            };
+
+        });
+
+        if (!mask.complete || mask.naturalWidth === 0) {
+            return;
+        }
+
+
+        // --------------------------------
+        // Create temporary canvas
+        // --------------------------------
+
+        const tempCanvas =
+            document.createElement("canvas");
+
+        tempCanvas.width = width;
+        tempCanvas.height = height;
+
+        const tempCtx =
+            tempCanvas.getContext("2d");
+
+
+        // --------------------------------
+        // Fill with selected color
+        // --------------------------------
+
+        tempCtx.fillStyle = backgroundColor;
+
+        tempCtx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        // --------------------------------
+        // Apply mask
+        // --------------------------------
+
+        tempCtx.globalCompositeOperation =
+            "destination-in";
+
+        tempCtx.drawImage(
+            mask,
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        // --------------------------------
+        // Put result onto main canvas
+        // --------------------------------
+
+        ctx.drawImage(
+            tempCanvas,
+            0,
+            0
+        );
+    }
+
+
+    // ====================================
+    // DRAW EVERYTHING IN HTML ORDER
+    // ====================================
+
+    const layers = preview.children;
+
+    for (const layer of layers) {
+
+        // Normal PNG
+        if (layer.tagName === "IMG") {
+
+            drawImageLayer(layer);
+
+        }
+
+        // Colored / masked layer
+        else {
+
+            const colorLayerIDs = [
+                "bkg-color",
+                "skin-color",
+                "back-hair-color",
+                "shoe-color",
+                "bottoms-color",
+                "shirt-color",
+                "bang-hair-color",
+                "hat-color"
+            ];
+
+            if (colorLayerIDs.includes(layer.id)) {
+
+                await drawColorLayer(layer);
+
+            }
+        }
+    }
+
+
+    // ====================================
+    // DOWNLOAD
+    // ====================================
+
+    const link = document.createElement("a");
+
+    link.download = "my-character.png";
+
+    link.href = canvas.toDataURL("image/png");
+
+    link.click();
+}
+
+
+
 
 // PAGE SWITCHING //-------------------------
 let currentRightPage = 1;

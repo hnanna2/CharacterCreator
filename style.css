@@ -113,11 +113,53 @@ h1 {
 #bottoms-name,
 #blush-name,
 #shoe-name,
-#expression-name {
+#expression-name,
+#glasses-name,
+#jewelry-name,
+#hat-name,
+#bkg-name {
     min-width: 70px;
     text-align: center;
 }
 
+/* Download Button */
+
+body {
+    position: relative;
+}
+
+/* Download Button */
+
+.download-button {
+    position: absolute;
+
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 150px;
+    height: 50px;
+
+    padding: 0;
+    margin: 0;
+
+    font-size: 20px;
+    font-family: inherit;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #ddd;
+    color: #222;
+
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+.download-button:hover {
+    background-color: #ccc;
+}
 
 .skin-colors {
     display: flex;
