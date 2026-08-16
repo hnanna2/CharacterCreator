@@ -191,6 +191,14 @@
 
         <div class="character-preview">
 
+            <div id="bkg-color" class="bkg-color-layer"></div>
+
+            <img 
+                id="bkg-outline"
+                src="assets/bkg/outline/outline-1.png"
+                class="character-layer"
+            >
+
             <div id="skin-color" class="skin-color-layer"></div>
 
             <div id="back-hair-color" class="hair-color-layer"></div>
@@ -242,12 +250,45 @@
                 id="bang-hair-outline"
                 src="assets/hair/bangs/outline/bang-1.PNG"
                 class="character-layer"
-            >        
+            >      
+            
+            <img 
+                id="glasses-layer"
+                src="assets/glasses/glasses-1.png"
+                class="character-layer"
+            >   
+
+            <img 
+                id="jewelry-layer"
+                src="assets/jewelry/jewelry-1.png"
+                class="character-layer"
+            >   
+
+            <div id="hat-color" class="clothing-color-layer"></div>
+
+            <img
+                id="hat-outline"
+                src="assets/hats/outline/outline-1.png"
+                class="character-layer"
+            >
+
         </div>
 
         <div class="controls controls-right">
 
-            <div class="option-selector">
+             <!-- PAGE NAVIGATION -->
+            <div class="right-page-header">
+
+                <button class="page-arrow" onclick="previousRightPage()">←</button>
+
+                <h2 id="right-page-title">Clothes</h2>
+
+                <button class="page-arrow" onclick="nextRightPage()">→</button>
+
+            </div>
+
+            <div id="clothes-page" class="right-page">
+                <div class="option-selector">
                 <h2>Tops</h2>
 
                 <div class="option-row">
@@ -471,6 +512,187 @@
 
                 </div>
             </div>
+
+            </div>
+
+            <div id="accessories-page" class="right-page">
+                <div class="option-selector">
+                    <h2>Glasses</h2>
+
+                    <div class="option-row">
+                        <button class="arrow-button" onclick="previousGlasses()">←</button>
+
+                        <span id="glasses-name">Glasses 1</span>
+
+                        <button class="arrow-button" onclick="nextGlasses()">→</button>
+                    </div>
+                </div>
+
+                <div class="option-selector">
+                    <h2>Jewelry</h2>
+
+                    <div class="option-row">
+                        <button class="arrow-button" onclick="previousJewelry()">←</button>
+
+                        <span id="jewelry-name">Jewelry 1</span>
+
+                        <button class="arrow-button" onclick="nextJewelry()">→</button>
+                    </div>
+                </div>
+
+                <div class="option-selector">
+                    <h2>Hats</h2>
+
+                    <div class="option-row">
+                        <button class="arrow-button" onclick="previousHat()">←</button>
+
+                        <span id="hat-name">Hat 1</span>
+
+                        <button class="arrow-button" onclick="nextHat()">→</button>
+                    </div>
+                </div>
+
+                <div class="option-selector">
+                    <h2>Hat Color</h2>
+
+                    <div class="clothing-colors">
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #171717;"
+                            onclick="changeHatColor('#171717')"
+                            aria-label="Black">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #6d9c79;"
+                            onclick="changeHatColor('#6d9c79')"
+                            aria-label="Green">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #4d6fa8;"
+                            onclick="changeHatColor('#4d6fa8')"
+                            aria-label="Blue">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #b83b3b;"
+                            onclick="changeHatColor('#b83b3b')"
+                            aria-label="Red">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #d8c27a;"
+                            onclick="changeHatColor('#d8c27a')"
+                            aria-label="Cream">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #e4ebed;"
+                            onclick="changeHatColor('#e4ebed')"
+                            aria-label="White">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #dea0cd;"
+                            onclick="changeHatColor('#dea0cd')"
+                            aria-label="Pink">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #574208;"
+                            onclick="changeHatColor('#574208')"
+                            aria-label="Brown">
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="option-selector">
+                    <h2>Backgrounds</h2>
+
+                    <div class="option-row">
+                        <button class="arrow-button" onclick="previousBkg()">←</button>
+
+                        <span id="bkg-name">Bkg 1</span>
+
+                        <button class="arrow-button" onclick="nextBkg()">→</button>
+                    </div>
+                </div>
+
+                <div class="option-selector">
+                    <h2>Background Color</h2>
+
+                    <div class="clothing-colors">
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #171717;"
+                            onclick="changeBkgColor('#171717')"
+                            aria-label="Black">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #6d9c79;"
+                            onclick="changeBkgColor('#6d9c79')"
+                            aria-label="Green">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #4d6fa8;"
+                            onclick="changeBkgColor('#4d6fa8')"
+                            aria-label="Blue">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #b83b3b;"
+                            onclick="changeBkgColor('#b83b3b')"
+                            aria-label="Red">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #d8c27a;"
+                            onclick="changeBkgColor('#d8c27a')"
+                            aria-label="Cream">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #e4ebed;"
+                            onclick="changeBkgColor('#e4ebed')"
+                            aria-label="White">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #dea0cd;"
+                            onclick="changeBkgColor('#dea0cd')"
+                            aria-label="Pink">
+                        </button>
+
+                        <button
+                            class="clothing-color-button"
+                            style="background-color: #574208;"
+                            onclick="changeBkgColor('#574208')"
+                            aria-label="Brown">
+                        </button>
+
+                    </div>
+            </div>
+
         </div>
 
     </div>

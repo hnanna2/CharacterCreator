@@ -217,7 +217,30 @@ h1 {
     transform: scale(1.1);
     border-color: #888 !important;
 }
+/* page swithcing */
+.right-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
 
+.right-page-header h2 {
+    margin: 0;
+}
+
+.page-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 50% !important;
+    font-size: 20px;
+}
+
+.right-page {
+    width: 100%;
+}
 /* clothing color layer */
 
 .clothing-color-layer {
@@ -239,6 +262,24 @@ h1 {
     mask-position: center;
 }
 
+/* bkg */
+
+.bkg-color-layer {
+    position: absolute;
+    inset: 0;
+    
+    background-color: #cbd0d4;
+
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    z-index: 0;
+}
 
 /* clothing color swatches */
 

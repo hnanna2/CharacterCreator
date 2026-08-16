@@ -468,6 +468,260 @@ function previousBangHair() {
     updateBangHair();
 }
 
+//ACCESSORIES
+
+//GLASSES
+let currentGlasses = 1;
+const totalGlasses = 6;
+
+function updateGlasses() {
+    const glassesLayer = document.getElementById("glasses-layer");
+    const glassesName = document.getElementById("glasses-name");
+
+    glassesLayer.src =
+        `assets/glasses/glasses-${currentGlasses}.png`;
+
+    glassesName.textContent = `Glasses ${currentGlasses}`;
+}
+
+function nextGlasses() {
+    currentGlasses++;
+
+    if (currentGlasses > totalGlasses) {
+        currentGlasses = 1;
+    }
+
+    updateGlasses();
+}
+
+function previousGlasses() {
+    currentGlasses--;
+
+    if (currentGlasses < 1) {
+        currentGlasses = totalGlasses;
+    }
+
+    updateGlasses();
+}
+
+//JEWELRY
+let currentJewelry = 1;
+const totalJewelry = 13;
+
+function updateJewelry() {
+    const jewelryLayer = document.getElementById("jewelry-layer");
+    const jewelryName = document.getElementById("jewelry-name");
+
+    jewelryLayer.src =
+        `assets/jewelry/jewelry-${currentJewelry}.png`;
+
+    jewelryName.textContent = `Jewelry ${currentJewelry}`;
+}
+
+function nextJewelry() {
+    currentJewelry++;
+
+    if (currentJewelry > totalJewelry) {
+        currentJewelry = 1;
+    }
+
+    updateJewelry();
+}
+
+function previousJewelry() {
+    currentJewelry--;
+
+    if (currentJewelry < 1) {
+        currentJewelry = totalJewelry;
+    }
+
+    updateJewelry();
+}
+
+//HATS
+let currentHat = 1;
+const totalHats = 6;
+
+let currentHatColor = "#cbd0d4";
+
+
+function updateHat() {
+
+    const outline = document.getElementById("hat-outline");
+    const colorLayer = document.getElementById("hat-color");
+    const name = document.getElementById("hat-name");
+
+    // Use the current BODY type
+    outline.src =
+        `assets/hats/outline/outline-${currentHat}.png`;
+
+    // Change the mask to match the current bottoms
+    colorLayer.style.maskImage =
+        `url("assets/hats/color-area/color_area-${currentHat}.png")`;
+
+    colorLayer.style.webkitMaskImage =
+        `url("assets/hats/color-area/color_area-${currentHat}.png")`;
+
+    // Keep the selected color
+    colorLayer.style.backgroundColor = currentHatColor;
+
+    name.textContent = `Hat ${currentHat}`;
+}
+
+
+function nextHat() {
+
+    currentHat++;
+
+    if (currentHat > totalHats) {
+        currentHat = 1;
+    }
+
+    updateHat();
+}
+
+
+function previousHat() {
+
+    currentHat--;
+
+    if (currentHat < 1) {
+        currentHat = totalHats;
+    }
+
+    updateHat();
+}
+
+
+function changeHatColor(color) {
+
+    currentHatColor = color;
+
+    const colorLayer = document.getElementById("hat-color");
+
+    colorLayer.style.backgroundColor = color;
+}
+
+//BKG
+let currentBkg = 1;
+const totalBkgs = 5;
+
+let currentBkgColor = "#cbd0d4";
+
+
+function updateBkg() {
+
+    const outline = document.getElementById("bkg-outline");
+    const colorLayer = document.getElementById("bkg-color");
+    const name = document.getElementById("bkg-name");
+
+    // Use the current BODY type
+    outline.src =
+        `assets/bkg/outline/outline-${currentBkg}.png`;
+
+    // Change the mask to match the current bottoms
+    colorLayer.style.maskImage =
+        `url("assets/bkg/color-area/color_area-${currentBkg}.png")`;
+
+    colorLayer.style.webkitMaskImage =
+        `url("assets/bkg/color-area/color_area-${currentBkg}.png")`;
+
+    // Keep the selected color
+    colorLayer.style.backgroundColor = currentBkgColor;
+
+    name.textContent = `Bkg ${currentBkg}`;
+}
+
+
+function nextBkg() {
+
+    currentBkg++;
+
+    if (currentBkg > totalBkgs) {
+        currentBkg = 1;
+    }
+
+    updateBkg();
+}
+
+
+function previousBkg() {
+
+    currentBkg--;
+
+    if (currentBkg < 1) {
+        currentBkg = totalBkgs;
+    }
+
+    updateBkg();
+}
+
+
+function changeBkgColor(color) {
+
+    currentBkgColor = color;
+
+    const colorLayer = document.getElementById("bkg-color");
+
+    colorLayer.style.backgroundColor = color;
+}
+
+
+
+
+// PAGE SWITCHING //-------------------------
+let currentRightPage = 1;
+const totalRightPages = 2;
+
+function updateRightPage() {
+
+    const clothesPage = document.getElementById("clothes-page");
+    const accessoriesPage = document.getElementById("accessories-page");
+    const title = document.getElementById("right-page-title");
+
+    if (currentRightPage === 1) {
+
+        clothesPage.style.display = "block";
+        accessoriesPage.style.display = "none";
+
+        title.textContent = "Clothes";
+
+    } else {
+
+        clothesPage.style.display = "none";
+        accessoriesPage.style.display = "block";
+
+        title.textContent = "Extras";
+    }
+}
+
+function nextRightPage() {
+
+    currentRightPage++;
+
+    if (currentRightPage > totalRightPages) {
+        currentRightPage = 1;
+    }
+
+    updateRightPage();
+}
+
+function previousRightPage() {
+
+    currentRightPage--;
+
+    if (currentRightPage < 1) {
+        currentRightPage = totalRightPages;
+    }
+
+    updateRightPage();
+}
+
+updateRightPage();
+
+//-----------------
+
+
 
 updateSkin();
 updateBody();
@@ -475,6 +729,11 @@ updateBody();
 updateBlush();
 updateShoe();
 updateExpression();
+updateGlasses();
+updateJewelry();
+updateHat();
+
+updateBkg();
 
 updateBackHair();
 updateBangHair();
