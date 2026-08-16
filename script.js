@@ -1,3 +1,9 @@
+document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("error", () => {
+        console.error("FAILED TO LOAD:", img.src);
+    });
+});
+
 // ======================
 // SKIN / BODY
 // ======================
